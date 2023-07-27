@@ -68,12 +68,7 @@ app.put('/update-employee/:id', async(req, res, next) => {
                 id: id
             },
         }) 
-        if(employee === 1){
-            res.send("Actualizado con éxito")
-        }
-        else{
-            res.send("No hay usuario para actualizar")
-        }
+        res.send("Peticion realizada con exito")
     } catch (error) {
         next()
     }
