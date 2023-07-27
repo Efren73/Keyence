@@ -8,6 +8,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 
+//Buscar todos los empleados
 app.get('/all-employees', async (req, res, next) => {
     try {
         const employees = await Employee.findAll()
@@ -19,6 +20,7 @@ app.get('/all-employees', async (req, res, next) => {
     }
 });
 
+//Buscar un solo empleado
 app.get('/employee/:id', async (req, res, next) => {
     const {id} = req.params
     try {
@@ -38,6 +40,7 @@ app.get('/employee/:id', async (req, res, next) => {
     }
 });
 
+//Agregar un solo empleado
 app.post('/create-employee', async(req, res, next) => {
     const body = req.body
     try {
@@ -49,6 +52,7 @@ app.post('/create-employee', async(req, res, next) => {
     }
 })
 
+//Agregar multiples empleados
 app.post('/bulk-create', async(req, res, next) => {
     const body = req.body;
     try {
@@ -59,6 +63,7 @@ app.post('/bulk-create', async(req, res, next) => {
     }
 })
 
+//Actualizar un empleado
 app.put('/update-employee/:id', async(req, res, next) => {
     const body = req.body 
     const {id} = req.params
@@ -74,6 +79,7 @@ app.put('/update-employee/:id', async(req, res, next) => {
     }
 })
 
+//Eliminar un empleado
 app.delete('/delete-employee/:id', async(req, res, next) => {
     const {id} = req.params;
     try {
